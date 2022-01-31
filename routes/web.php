@@ -17,7 +17,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'PrincipalController@index')->name('site.index');
 Route::get('/sobre-nos', 'SobreNosController@index')->name('site.sobrenos');
 Route::get('/contato', 'ContatoController@index')->name('site.contato');
+Route::post('/contato', 'ContatoController@index')->name('site.contato');
 Route::get('/login', 'LoginController@index')->name('site.login');
+
 
 Route::prefix('/app')->group(function () {
     Route::get('/clientes', 'ClientesController@index')->name('app.clientes');
@@ -25,9 +27,10 @@ Route::prefix('/app')->group(function () {
     Route::get('/produtos', 'ProdutosController@index')->name('app.produtos');
 });
 
-Route::fallback(function(){
-    echo 'Página não encontrada, click <a href="'.route('site.principal').'" />aqui</a> para retornar a home'; 
-});
+
+// Route::fallback(function(){
+//     echo 'Página não encontrada, click <a href="'.route('site.principal').'" />aqui</a> para retornar a home'; 
+// });
 
 
 
